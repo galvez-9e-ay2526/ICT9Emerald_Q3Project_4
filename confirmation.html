@@ -12,28 +12,23 @@
 
 </head>
 <body>
-    <header class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="esakaymo.png" width="50px"></a>
+            <a class="navbar-brand">
+                <img src="esakaymo.png" style="width:50px;" class="rounded">
+            </a>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Fare Matrix</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Schedule</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+                </ul>
+                <a class="btn btn-primary" href="registration.html" role="button">Create Account</a>
+            </div>
         </div>
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Fare Matrix</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Schedule</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Help</a>
-            </li>
-        </ul>
-        <form class="d-flex">
-            <button class="btn btn-primary" type="button" href="registration.html">Create Accounnt</button>
-        </form>
-    </header>
+    </nav>
 
     <main class="container-fluid">
         <div class="container rounded mt-5 p-3">
@@ -48,6 +43,7 @@
 </body>
     <script src="proj.js"></script>
 </html>
+
 
 
 
