@@ -1,8 +1,11 @@
 body {
-  background-image: url("mrtbackground.jpg");
-  background-repeat: no-repeat; 
-  background-position: center;
-  font-family: Momo-Signature;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('mrtbackground.jpg') no-repeat center center fixed;    font-family: san-serif;
+    padding-bottom: 70px;
+}
+
+footer {
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 .container bg-info {
   padding:30px;
@@ -21,6 +24,7 @@ input {
 form {
   color: floralwhite;
 }
+
 
 
 
