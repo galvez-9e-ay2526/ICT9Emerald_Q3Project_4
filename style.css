@@ -1,8 +1,8 @@
-body {
-  font-family: Momo-Signature;
+.body {
   background-image: url("mrtbackground.jpg");
   background-repeat: no-repeat; 
   background-position: center;
+  font-family: Momo-Signature;
 }
 .container bg-info {
   padding:30px;
@@ -18,4 +18,5 @@ body {
 input {
   text-align: center;
 }
+
 
