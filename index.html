@@ -13,82 +13,98 @@
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand">
-                <img src="esakaymo.png" style="width:50px;" class="rounded">
-            </a>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Fare Matrix</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Schedule</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
-                </ul>
-                <a class="btn btn-primary" href="registration.html" role="button">Create Account</a>
-            </div>
+        <a class="navbar-brand" href="#">
+            <img src="eSakayMo.png" alt="eSakayMo" style="width:40px;" class="rounded"> 
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Fare Matrix</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Schedule</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+            </ul>  
+            <form class="d-flex">
+            <button class="btn btn-primary" type="button" onclick="window.location.href='registration.html'">Create Account</button>
+            </form>
         </div>
     </nav>
-
-<div class="container-fluid mt-4 mb-5">
-        <div class="container p-4 bg-light text-dark rounded shadow-lg" style="max-width: 900px;">
-            <div class="text-center mb-4">
-                <img src="esakaymo.png" width="70">
-                <h2>Welcome to <span class="text-warning">eSakayMo</span> Fare Guide</h2>
-                <p class="text-secondary">Compute your estimated fare easily</p>
-            </div>
-            <div class="bg-white p-4 rounded shadow-sm">
-                <div class="row g-3 align-items-center">
-                    <div class="col-md-4 text-center">
-                        <img src="metro_Fare.png" alt="Metro Fare" class="img-fluid">
+    <main class="container-fluid mt-3 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="container p-5 bg-light text-dark rounded shadow-lg">
+                    <div class="text-center mb-4">
+                        <img src="eSakayMo.png" width="70">
+                        <h2>Welcome to <span class="text-warning">eSakayMo</span> Fare Guide</h2>
+                        <p class="text-secondary">Compute your estimated fare easily.</p>
                     </div>
-                    <div class="col-md-8">
-                        <h4 class="mb-3">Fare Matrix</h4>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Pick-up location (km)</label>
-                            <input type="number" id="pick" class="form-control" placeholder="e.g., 0" value="0">
+                    <div class="bg-white p-3 rounded shadow-sm">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center">
+                                <img src="metro_Fare.png" alt="Metro Fare" class="img-fluid">
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="mb-3">Fare Matrix</h4>
+                                <div class="mb-3">
+                                    <label class="form-label">Pick-Up Location</label>
+                                    <select id="pick" class="form-select">
+                                        <option value="0">North Avenue</option>
+                                        <option value="1">Quezon Avenue</option>
+                                        <option value="2">Kamuning</option>
+                                        <option value="3">Araneta Center-Cubao</option>
+                                        <option value="4">Santolan-Annapolis</option>
+                                        <option value="5">Ortigas</option>
+                                        <option value="6">Shaw Boulevard</option>
+                                        <option value="7">Boni</option>
+                                        <option value="8">Guadalupe</option>
+                                        <option value="9">Buendia</option>
+                                        <option value="10">Ayala</option>
+                                        <option value="11">Magallanes</option>
+                                        <option value="12">Taft Avenue</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Drop-Off Location</label>
+                                    <select id="drop" class="form-select">
+                                        <option value="0">North Avenue</option>
+                                        <option value="1">Quezon Avenue</option>
+                                        <option value="2">Kamuning</option>
+                                        <option value="3">Araneta Center-Cubao</option>
+                                        <option value="4">Santolan-Annapolis</option>
+                                        <option value="5">Ortigas</option>
+                                        <option value="6">Shaw Boulevard</option>
+                                        <option value="7">Boni</option>
+                                        <option value="8">Guadalupe</option>
+                                        <option value="9">Buendia</option>
+                                        <option value="10">Ayala</option>
+                                        <option value="11">Magallanes</option>
+                                        <option value="12">Taft Avenue</option>
+                                    </select>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="discountCheck">
+                                    <label class="form-check-label" for="discountCheck">Senior/PWD Discount (20%)</label>
+                                </div>
+                                <button class="btn btn-warning" onclick="calculateFare()">Compute Fare</button>
+                                <div id="fareResult" class="mt-3 alert alert-info text-center" style="display: none;"></div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Drop-off location (km)</label>
-                            <input type="number" id="drop" class="form-control" placeholder="e.g., 5" value="2">
-                        </div>
-                        <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" id="discountCheck">
-                            <label class="form-check-label" for="discountCheck">
-                            Senior / PWD Discount (20%)
-                            </label>
-                        </div>
-                        <button class="btn btn-warning" onclick="calculateFare()">Compute Fare</button>
-                        <div id="fareResult" class="mt-3 alert alert-info text-center fw-bold" style="display: none;"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-4 g-3">
-                <div class="col-md-6">
-                    <div class="bg-white p-3 rounded shadow-sm h-100">
-                        <h5>Base fare</h5>
-                        <p class="mb-0">₱50 for the first 2 km, then ₱15 per additional km.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="bg-white p-3 rounded shadow-sm h-100">
-                        <h5>Discount</h5>
-                        <p class="mb-0">20% discount for senior citizens and PWDs (valid ID required).</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer class="text-center py-3 bg-dark text-light fixed-bottom">
-        Group 4 | 9 Emerald &copy; 2026
+    </main>
+    <footer class="text-center py-3 bg-dark text-light mt-auto fixed-bottom">
+         Group 4 | 9 Emerald &copy; 2026
     </footer>
 </body>
-<script>
-    
-</script>
-    <script src="proj.js">
-    </script>
+    <script src="proj.js"></script>
 </html>
+
+
+
 
 
 
