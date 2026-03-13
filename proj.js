@@ -1,28 +1,25 @@
 function calculateFare() {
-    let pick = parseFloat(document.getElementById('pick').value);
-    let drop = parseFloat(document.getElementById('drop').value);
-    let discountApplied = document.getElementById('discountCheck').checked;
+    const baseFare = 13;
+    const perStopRate = 13;
+    const baseStops = 2;
 
-    if (isNaN(pick) || isNaN(drop) || pick < 0 || drop < 0) {
-        alert('Please enter valid positive numbers for both locations.');
-        return;
+    let pick = parseInt(document.getElementById("pick").value);
+    let drop = parseInt(document.getElementById("drop").value);
+    let discount = document.getElementById("discountCheck").checked ? 0.20 : 0;
+
+    let stops = Math.abs(drop - pick);
+    let totalFare;
+
+    if (stops <= baseStops) {
+        totalFare = baseFare;
+    } else {
+        let extraStops = stops - baseStops;
+        totalFare = baseFare + (extraStops * perStopRate);
     }
 
-    let distance = Math.abs(drop - pick);
-    const baseFare = 50;
-    const perKmRate = 15;
-    const baseKm = 2;
+    totalFare = totalFare - (totalFare * discount);
 
-    let fare = baseFare;
-    if (distance > baseKm) {
-        fare += (distance - baseKm) * perKmRate;
-    }
-
-    if (discountApplied) {
-        fare *= 0.8; // 20% off
-    }
-
-    let resultDiv = document.getElementById('fareResult');
-    resultDiv.style.display = 'block';
-    resultDiv.innerHTML = Total Fare: <strong>₱${fare.toFixed(2)}</strong>;
+    let resultDiv = document.getElementById("fareResult");
+    resultDiv.style.display = "block";
+    resultDiv.innerHTML = "Estimated Fare: PHP " + totalFare.toFixed(2);
 }
